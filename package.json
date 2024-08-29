@@ -1,0 +1,19 @@
+{
+  "name": "api-express",
+  "version": "0.1.0",
+  "description": "api express",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch ."
+  },
+  "keywords": [
+    "express",
+    "api"
+  ],
+  "author": "dam450 <dam450@duck.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
