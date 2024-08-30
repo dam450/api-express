@@ -1,7 +1,7 @@
-import express from "express";
+import express, { json } from "express";
 
 const app = express();
-const port = 3333;
+app.use(json());
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
