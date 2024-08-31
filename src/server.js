@@ -16,9 +16,7 @@ app.use(json());
 app.use(cors(corsOptions));
 app.use(helmet());
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
+app.get("/", (_, res) => res.json({ message: "server running!" }));
 
 app.listen(port, () => {
   console.log(`\n[Server] listening on port ${port}...\n`);
