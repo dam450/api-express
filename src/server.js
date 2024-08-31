@@ -1,5 +1,6 @@
 import express, { json } from "express";
 import cors from "cors";
+import helmet from "helmet";
 
 const port = 3333;
 const corsOptions = {
@@ -13,6 +14,7 @@ const corsOptions = {
 const app = express();
 app.use(json());
 app.use(cors(corsOptions));
+app.use(helmet());
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
