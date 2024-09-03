@@ -4,6 +4,8 @@ import express, { json } from "express";
 import cors from "cors";
 import helmet from "helmet";
 import compression from "compression";
+
+import { router } from "./routes/index.js";
 import { errorMiddleware } from "./utils/ApiError.js";
 
 dotenv();
@@ -24,6 +26,7 @@ app.use(json());
 app.use(cors(corsOptions));
 app.use(helmet());
 app.use(compression({ level: 9 }));
+app.use("/api", router);
 app.use(errorMiddleware); //must be after routes
 
 app.listen(port, () => {
