@@ -8,9 +8,11 @@ import { errorMiddleware } from "./utils/ApiError.js";
 
 dotenv();
 
-const port = 3333;
+const port = process.env.PORT || 3333;
+const corsOrigin = process.env.CORS_ORIGIN.split(",") || "*";
+
 const corsOptions = {
-  origin: ["http://localhost:3000"],
+  origin: corsOrigin,
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
