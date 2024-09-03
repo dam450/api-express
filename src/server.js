@@ -2,6 +2,7 @@ import { config as dotenv } from "dotenv";
 import express, { json } from "express";
 import cors from "cors";
 import helmet from "helmet";
+import compression from "compression";
 
 dotenv();
 
@@ -18,8 +19,7 @@ const app = express();
 app.use(json());
 app.use(cors(corsOptions));
 app.use(helmet());
-
-app.get("/", (_, res) => res.json({ message: "server running!" }));
+app.use(compression({ level: 9 }));
 
 app.listen(port, () => {
   console.log(`\n[Server] listening on port ${port}...\n`);
