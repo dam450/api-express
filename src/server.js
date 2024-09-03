@@ -1,6 +1,9 @@
+import { config as dotenv } from "dotenv";
 import express, { json } from "express";
 import cors from "cors";
 import helmet from "helmet";
+
+dotenv();
 
 const port = 3333;
 const corsOptions = {
