@@ -5,7 +5,8 @@
   "main": "src/server.js",
   "type": "module",
   "scripts": {
-    "dev": "node --watch ."
+    "dev": "node --watch .",
+    "format": "biome check --write ./src"
   },
   "keywords": [
     "express",
@@ -18,5 +19,9 @@
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "express-async-errors": "^3.1.1"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.8.3",
+    "lefthook": "^1.7.15"
   }
 }
