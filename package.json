@@ -4,14 +4,16 @@
   "description": "api express",
   "main": "src/server.js",
   "type": "module",
+  "engines": {
+    "node": ">=20",
+    "pnpm": ">=9"
+  },
   "scripts": {
+    "start": "node .",
     "dev": "node --watch .",
     "format": "biome check --write ./src"
   },
-  "keywords": [
-    "express",
-    "api"
-  ],
+  "keywords": ["express", "api"],
   "author": "dam450 <dam450@duck.com>",
   "license": "MIT",
   "dependencies": {
