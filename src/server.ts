@@ -13,6 +13,8 @@ dotenv();
 const port = process.env.PORT || 3333;
 const corsOrigin = process.env.CORS_ORIGIN?.split(",") ?? "*";
 
+console.info({ "[Environment config]": { port, corsOrigin } });
+
 const corsOptions = {
   origin: corsOrigin,
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
