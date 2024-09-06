@@ -1,31 +1,38 @@
-export class ApiError extends Error {
-  statusCode;
+import type { NextFunction, Request, Response } from "express";
 
-  constructor(message, statusCode = 400) {
+export class ApiError extends Error {
+  statusCode: number;
+
+  constructor(message: string, statusCode = 400) {
     super(message);
     this.statusCode = statusCode;
   }
 }
 
 export class BadRequestError extends ApiError {
-  constructor(message) {
+  constructor(message: string) {
     super(message, 400);
   }
 }
 
 export class NotFoundError extends ApiError {
-  constructor(message) {
+  constructor(message: string) {
     super(message, 404);
   }
 }
 
 export class UnauthorizedError extends ApiError {
-  constructor(message) {
+  constructor(message: string) {
     super(message, 401);
   }
 }
 
-export const errorMiddleware = (error, request, response, next) => {
+export const errorMiddleware = (
+  error: Error,
+  request: Request,
+  response: Response,
+  next: NextFunction,
+) => {
   if (error instanceof ApiError) {
     const { statusCode, message } = error;
     return response.status(statusCode).json({

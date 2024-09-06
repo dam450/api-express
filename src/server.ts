@@ -5,13 +5,13 @@ import { config as dotenv } from "dotenv";
 import express, { json } from "express";
 import helmet from "helmet";
 
-import { router } from "./routes/index.js";
-import { errorMiddleware } from "./utils/ApiError.js";
+import { router } from "./routes";
+import { errorMiddleware } from "./utils/ApiError";
 
 dotenv();
 
 const port = process.env.PORT || 3333;
-const corsOrigin = process.env.CORS_ORIGIN.split(",") || "*";
+const corsOrigin = process.env.CORS_ORIGIN?.split(",") ?? "*";
 
 const corsOptions = {
   origin: corsOrigin,
@@ -19,7 +19,7 @@ const corsOptions = {
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
   optionsSuccessStatus: 204,
-};
+} satisfies cors.CorsOptions;
 
 const app = express();
 app.use(json({ limit: "50kb" }));
@@ -31,5 +31,5 @@ app.use(errorMiddleware); //must be after routes
 app.get("/", (_, res) => res.redirect("/api/v1"));
 
 app.listen(port, () => {
-  console.log(`\n[Server] listening on port ${port}...\n`);
+  console.log(`\n[Server] listening on port ${port}\n`);
 });
