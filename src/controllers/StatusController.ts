@@ -1,8 +1,9 @@
-import { BadRequestError } from "../utils/ApiError.js";
+import type { Request, Response } from "express";
+import { BadRequestError } from "../utils/ApiError";
 
 export class StatusController {
-  async index(req, res) {
-    const { err } = req.query;
+  async index(req: Request, res: Response) {
+    const { err } = req.query as Record<string, string>;
 
     if (err) {
       throw new BadRequestError(err);
