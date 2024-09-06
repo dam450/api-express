@@ -12,9 +12,12 @@
     "start": "node .",
     "dev": "tsnd --transpile-only ./src/server.ts",
     "build": "tsc --project .",
-    "format": "biome check --write ./src"
+    "format": "biome check --write ."
   },
-  "keywords": ["express", "api"],
+  "keywords": [
+    "express",
+    "api"
+  ],
   "author": "dam450 <dam450@duck.com>",
   "license": "MIT",
   "dependencies": {
