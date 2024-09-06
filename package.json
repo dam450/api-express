@@ -6,7 +6,7 @@
   "type": "commonjs",
   "engines": {
     "node": ">=20",
-    "pnpm": ">=9"
+    "pnpm": ">=8"
   },
   "scripts": {
     "start": "node .",
